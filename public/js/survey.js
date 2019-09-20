@@ -3,11 +3,11 @@
 // *************************             **********************************
 
 document.addEventListener("DOMContentLoaded", () => {
+	//store some localstorage variable for login status.
 	let loggedIn = localStorage.getItem("loggedIn");
-	loggedIn = loggedIn === true ? true : false;
 	console.log(loggedIn);
-	if (loggedIn === true) {
-		$("#register").addClass("disabled");
+	if (loggedIn == "true") {
+		$("#registerLink").addClass("disabled");
 	}
 
 	//Create vars pointing to elements

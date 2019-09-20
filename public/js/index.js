@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+	$("#profileLink").toggleClass("disabled");
+	//store some localstorage variable for login status.
 	let loggedIn = localStorage.getItem("loggedIn");
-	loggedIn = loggedIn === true ? true : false;
 	console.log(loggedIn);
-	if (loggedIn === true) {
-		$("#register").addClass("disabled");
+	if (loggedIn == "true") {
+		$("#registerLink").toggleClass("disabled");
+		$("#profileLink").toggleClass("disabled");
+	}
+
+	let username = localStorage.getItem("username");
+
+	if (username) {
+		console.log("USERNAME TRUE");
 	}
 });

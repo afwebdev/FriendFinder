@@ -2,10 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	let submit = document.getElementById("submit");
 	//store some localstorage variable for login status.
 	let loggedIn = localStorage.getItem("loggedIn");
-	loggedIn = loggedIn === true ? true : false;
 	console.log(loggedIn);
-	if (loggedIn === true) {
-		$("#register").addClass("disabled");
+	if (loggedIn == "true") {
+		$("#registerLink").addClass("disabled");
 	}
 
 	submit.addEventListener("click", () => {
@@ -22,7 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		})
 			.then(res => res.json())
 			.then(result => {
-				console.log(result);
+				console.log(result.loggedIn);
+				localStorage.setItem("loggedIn", result.loggedIn);
+				localStorage.setItem("username", result.username);
+				console.log(localStorage);
 			})
 			.catch(err => {
 				throw err;

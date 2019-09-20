@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../config/database");
 //Table models
 const Accounts = require("../models/Accounts");
 
@@ -27,7 +26,7 @@ router.post("/submit", (req, resp) => {
 		} else {
 			Accounts.create({ username, password })
 				.then(res => {
-					resp.json({ accountExists: false, loggedIn: true });
+					resp.json({ accountExists: false, loggedIn: true, username });
 				})
 				.catch(err => {
 					throw err;

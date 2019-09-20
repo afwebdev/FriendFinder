@@ -29,6 +29,8 @@ app.use("/survey", require("./routes/survey"));
 //register
 app.use("/register", require("./routes/register"));
 
+app.use("/profile", require("./routes/profile"));
+
 //login
 // app.use("/login", require("./routes/login"));
 
