@@ -25,7 +25,13 @@ router.post("/submit", (req, resp) => {
 		if (res) {
 			resp.json({ accountExists: true, loggedIn: false });
 		} else {
-			resp.json({ accountExists: false, loggedIn: true });
+			Accounts.create({ username, password })
+				.then(res => {
+					resp.json({ accountExists: false, loggedIn: true });
+				})
+				.catch(err => {
+					throw err;
+				});
 		}
 	});
 });
