@@ -1,0 +1,26 @@
+<div class="container">
+	<form id="submitSurvey">
+		{{#each questionArr}}
+			<h3>{{question}}</h3>
+			<ul id="answerList">
+				<li>
+					<input id="{{id}}_answer" name="{{id}}_answer" type="radio" data-value="1">
+					<label for="{{id}}_answer">{{answer_1}}</label>
+				</li>
+				<li>
+					<input id="{{id}}_answer" name="{{id}}_answer" type="radio" data-value="2">
+					<label for="{{id}}_answer">{{answer_2}}</label>
+				</li>
+				<li>
+					<input id="{{id}}_answer" name="{{id}}_answer" type="radio" data-value="3">
+					<label for="{{id}}_answer">{{answer_3}}</label>
+				</li>
+				<li>
+					<input id="{{id}}_answer" name="{{id}}_answer" type="radio" data-value="4">
+					<label for="{{id}}_answer">{{answer_4}}</label>
+				</li>
+			</ul>
+		{{/each}}
+		<button id="submit">Submit</button>
+	</form>	
+</div>
