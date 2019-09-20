@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		//Check if the answer.length = 6 (ALL QUESTIONS ANSWERED)
 		if (answers.length === 6) {
 			let data = JSON.stringify({
-				user_id: "andrew",
+				user_id: localStorage.getItem("username"),
 				answer_1: answers[0],
 				answer_2: answers[1],
 				answer_3: answers[2],
