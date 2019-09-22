@@ -6,8 +6,6 @@ const Accounts = require("../models/Accounts");
 const accountExists = async username => {
 	let exists;
 	await Accounts.findAll({ where: { username } }).then(res => {
-		// console.log(res);
-		// console.log(res.length);
 		exists = res.length > 1 ? true : false;
 	});
 	return exists;

@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 	let submit = document.getElementById("submit");
 	//store some localstorage variable for login status.
+	$("#profileLink").toggleClass("disabled");
+	$("#surveyLink").toggleClass("disabled");
+
+	//store some localstorage variable for login status.
 	let loggedIn = localStorage.getItem("loggedIn");
 	console.log(loggedIn);
 	if (loggedIn == "true") {
-		$("#registerLink").addClass("disabled");
+		$("#registerLink").toggleClass("disabled");
+		$("#profileLink").toggleClass("disabled");
+		$("#surveyLink").toggleClass("disabled");
 	}
 
 	submit.addEventListener("click", () => {
@@ -25,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				localStorage.setItem("loggedIn", result.loggedIn);
 				localStorage.setItem("username", result.username);
 				console.log(localStorage);
+				window.location = "/";
 			})
 			.catch(err => {
 				throw err;
