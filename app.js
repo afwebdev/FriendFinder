@@ -1,6 +1,6 @@
 //DATABASE
 const db = require("./models");
-
+///.
 //HANDLEBARS
 const exphbs = require("express-handlebars");
 
