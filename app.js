@@ -1,5 +1,3 @@
-require("dotenv").config({ path: "./config/.env" });
-
 //DATABASE
 const db = require("./models");
 
@@ -41,7 +39,7 @@ db.sequelizeConnection
 			if (err) console.log(err);
 			console.clear();
 
-			console.log(`Server Running on http://${process.env.HOST}:${PORT}`);
+			console.log(`Server Running on ${PORT}`);
 		});
 	})
 	.catch(err => {
