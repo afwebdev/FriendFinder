@@ -16,10 +16,10 @@
 		"operatorsAliases": false
 	},
 	"production": {
-		"username": "root",
-		"password": "andrew123",
-		"database": "friendFinder",
-		"host": "127.0.0.1",
+		"username": "s3waajibdf5j6ct8:",
+		"password": "s3waajibdf5j6ct8:",
+		"database": "f4ppuf69o2xf5i6z",
+		"host": "xefi550t7t6tjn36.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 		"dialect": "mysql",
 		"operatorsAliases": false,
 		"use_env_variable": "JAWSDB_URL"
