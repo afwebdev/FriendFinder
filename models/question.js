@@ -1,24 +1,24 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database");
-
-module.exports = db.define(
-	"questionBank",
-	{
-		question: {
-			type: Sequelize.TEXT
+module.exports = (sequelizeConnection, DataTypes) => {
+	var questionBank = sequelizeConnection.define(
+		"questionBank",
+		{
+			question: {
+				type: DataTypes.TEXT
+			},
+			answer_1: {
+				type: DataTypes.TEXT
+			},
+			answer_2: {
+				type: DataTypes.TEXT
+			},
+			answer_3: {
+				type: DataTypes.TEXT
+			},
+			answer_4: {
+				type: DataTypes.TEXT
+			}
 		},
-		answer_1: {
-			type: Sequelize.TEXT
-		},
-		answer_2: {
-			type: Sequelize.TEXT
-		},
-		answer_3: {
-			type: Sequelize.TEXT
-		},
-		answer_4: {
-			type: Sequelize.TEXT
-		}
-	},
-	{ timestamps: false, freezeTableName: true }
-);
+		{ timestamps: false, freezeTableName: true }
+	);
+	return questionBank;
+};

@@ -1,12 +1,11 @@
-//ACCOUNT MODEL.
-const Sequelize = require("sequelize");
-const db = require("../config/database");
-
-module.exports = db.define(
-	"accounts",
-	{
-		username: Sequelize.STRING,
-		password: Sequelize.STRING
-	},
-	{ freezeTableName: true }
-);
+module.exports = (SequelizeConnection, DataTypes) => {
+	var Account = SequelizeConnection.define(
+		"accounts",
+		{
+			username: DataTypes.STRING,
+			password: DataTypes.STRING
+		},
+		{ freezeTableName: true }
+	);
+	return Account;
+};

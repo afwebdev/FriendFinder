@@ -1,7 +1,7 @@
 require("dotenv").config({ path: "./config/.env" });
 
 //DATABASE
-const db = require("./config/database.js");
+const db = require("./models");
 
 //HANDLEBARS
 const exphbs = require("express-handlebars");
@@ -34,11 +34,18 @@ app.use("/profile", require("./routes/profile"));
 //login
 // app.use("/login", require("./routes/login"));
 
-app.listen(PORT, err => {
-	if (err) console.log(err);
-	console.clear();
-	db.sync();
-	console.log(`Server Running on http://${process.env.HOST}:${PORT}`);
-});
+db.sequelizeConnection
+	.sync()
+	.then(res => {
+		app.listen(PORT, err => {
+			if (err) console.log(err);
+			console.clear();
+
+			console.log(`Server Running on http://${process.env.HOST}:${PORT}`);
+		});
+	})
+	.catch(err => {
+		throw err;
+	});
 
 // db.authenticate();

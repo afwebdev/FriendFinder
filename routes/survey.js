@@ -1,13 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../config/database");
-const questions = require("../models/question");
-const answerLog = require("../models/answerLog");
+const db = require("../models");
 
 //URL = localhost:8080/survey/
 //get questions
 router.get("/", (req, resp) => {
-	questions
+	db.questionBank
 		.findAll()
 		.then(question => {
 			let questionArr = [];
@@ -27,7 +25,7 @@ router.get("/", (req, resp) => {
 router.post("/submit", (req, resp) => {
 	let { username, answer_1, answer_2, answer_3, answer_4, answer_5, answer_6, score } = req.body;
 	//Add above data to db.
-	answerLog
+	db.answerLog
 		.create({
 			username,
 			answer_1,

@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 //Table models
-const Accounts = require("../models/Accounts");
+const db = require("../models");
 
 const accountExists = async username => {
 	let exists;
-	await Accounts.findAll({ where: { username } }).then(res => {
+	await db.accounts.findAll({ where: { username } }).then(res => {
 		exists = res.length > 1 ? true : false;
 	});
 	return exists;
@@ -22,7 +22,8 @@ router.post("/submit", (req, resp) => {
 		if (res) {
 			resp.json({ accountExists: true, loggedIn: false });
 		} else {
-			Accounts.create({ username, password })
+			db.accounts
+				.create({ username, password })
 				.then(res => {
 					resp.json({ accountExists: false, loggedIn: true, username });
 				})

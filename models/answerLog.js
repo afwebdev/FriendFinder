@@ -1,33 +1,33 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database");
-
-module.exports = db.define(
-	"answerLog",
-	{
-		username: {
-			type: Sequelize.STRING
+module.exports = (sequelizeConnection, DataTypes) => {
+	var answerLog = sequelizeConnection.define(
+		"answerLog",
+		{
+			username: {
+				type: DataTypes.STRING
+			},
+			answer_1: {
+				type: DataTypes.INTEGER
+			},
+			answer_2: {
+				type: DataTypes.INTEGER
+			},
+			answer_3: {
+				type: DataTypes.INTEGER
+			},
+			answer_4: {
+				type: DataTypes.INTEGER
+			},
+			answer_5: {
+				type: DataTypes.INTEGER
+			},
+			answer_6: {
+				type: DataTypes.INTEGER
+			},
+			score: {
+				type: DataTypes.INTEGER
+			}
 		},
-		answer_1: {
-			type: Sequelize.INTEGER
-		},
-		answer_2: {
-			type: Sequelize.INTEGER
-		},
-		answer_3: {
-			type: Sequelize.INTEGER
-		},
-		answer_4: {
-			type: Sequelize.INTEGER
-		},
-		answer_5: {
-			type: Sequelize.INTEGER
-		},
-		answer_6: {
-			type: Sequelize.INTEGER
-		},
-		score: {
-			type: Sequelize.INTEGER
-		}
-	},
-	{ timestamps: false, freezeTableName: true }
-);
+		{ timestamps: false, freezeTableName: true }
+	);
+	return answerLog;
+};
