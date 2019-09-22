@@ -30,9 +30,32 @@ ul {
 }
 
 .match {
-	width: 50%;
-	padding: 1em;
-	background-color: red;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
+	flex-direction: column;
+	width: 100%;
+	padding: 1em;
+	background-color: rgba(59, 58, 58, 0.1);
+}
+
+#score {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.matchbox {
+	margin: 1em;
+	text-align: center;
+	height: 100%;
+	width: auto;
+	border: 1px solid black;
+}
+
+#resultBox {
+	width: 100%;
+}
+
+.matchInfo {
+	display: flex;
+	flex-direction: column;
 }

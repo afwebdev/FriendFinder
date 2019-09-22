@@ -4,7 +4,7 @@ const db = require("../config/database");
 module.exports = db.define(
 	"answerLog",
 	{
-		user_id: {
+		username: {
 			type: Sequelize.STRING
 		},
 		answer_1: {

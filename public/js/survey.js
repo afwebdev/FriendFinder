@@ -40,8 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		//Check if the answer.length = 6 (ALL QUESTIONS ANSWERED)
 		if (answers.length === 6) {
+			let username = localStorage.getItem("username");
 			let data = JSON.stringify({
-				user_id: localStorage.getItem("username"),
+				username: username,
 				answer_1: answers[0],
 				answer_2: answers[1],
 				answer_3: answers[2],
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				answer_6: answers[5],
 				score: calcScore(answers)
 			});
+			console.log(data);
 			fetch("/survey/submit", {
 				method: "POST",
 				headers: {

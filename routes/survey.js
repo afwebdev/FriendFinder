@@ -25,12 +25,11 @@ router.get("/", (req, resp) => {
 
 //URL: localhost:8080/survey/submit
 router.post("/submit", (req, resp) => {
-	let { user_id, answer_1, answer_2, answer_3, answer_4, answer_5, answer_6, score } = req.body;
-	console.log(user_id);
+	let { username, answer_1, answer_2, answer_3, answer_4, answer_5, answer_6, score } = req.body;
 	//Add above data to db.
 	answerLog
 		.create({
-			user_id,
+			username,
 			answer_1,
 			answer_2,
 			answer_3,
